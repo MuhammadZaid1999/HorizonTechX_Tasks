@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { CartPage } from "./pages/CartPage";
 import { LoginPage } from "./pages/LoginPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { OrderTrackingPage } from "./pages/OrderTrackingPage";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
 import { ProductListingPage } from "./pages/ProductListingPage";
 import { RegisterPage } from "./pages/RegisterPage";
@@ -96,6 +97,7 @@ function App() {
             updateQuantity={updateQuantity}
           />
         )}
+        {route.name === "orders" && <OrderTrackingPage navigate={navigate} />}
         {route.name === "login" && <LoginPage navigate={navigate} />}
         {route.name === "register" && <RegisterPage navigate={navigate} />}
         {route.name === "notFound" && <NotFoundPage navigate={navigate} />}
@@ -113,6 +115,7 @@ function getRoute(path: string) {
     };
   }
   if (path === "/cart") return { name: "cart" as const };
+  if (path === "/orders") return { name: "orders" as const };
   if (path === "/login") return { name: "login" as const };
   if (path === "/register") return { name: "register" as const };
   return { name: "notFound" as const };

@@ -19,3 +19,22 @@ export type CartItem = {
 }
 
 export type Navigate = (path: string) => void
+
+export type DeliveryStatus = "processing" | "shipped" | "in-transit" | "delivered" | "cancelled"
+
+export type OrderItem = {
+  productId: string
+  productName: string
+  productImage: string
+  quantity: number
+  price: number
+  deliveryAddress: string
+  deliveryStatus: DeliveryStatus
+}
+
+export type Order = {
+  id: string
+  date: string
+  items: OrderItem[]
+  total: number
+}

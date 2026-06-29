@@ -30,6 +30,11 @@ export function Header({
           label="Cart"
           onClick={() => navigate("/cart")}
         />
+        <NavButton
+          active={path === "/orders"}
+          label="Orders"
+          onClick={() => navigate("/orders")}
+        />
       </nav>
       <label className="search-field">
         <span className="sr-only">Search products</span>
@@ -51,6 +56,9 @@ export function Header({
           </button>
           <button type="button" onClick={() => navigate("/register")}>
             Register
+          </button>
+          <button type="button" onClick={() => navigate("/orders")}>
+            Orders
           </button>
           <button type="button" onClick={() => navigate("/cart")}>
             Cart ({cartCount})
