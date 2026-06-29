@@ -59,7 +59,7 @@ const orderSchema = new Schema(
 
 // Indexes
 orderSchema.index({ createdAt: -1 });
-orderSchema.index({ userId: 1, productId: 1 });
+orderSchema.index({ userId: 1, createdAt: -1 });
 
 export type OrderDocument = InferSchemaType<typeof orderSchema>;
 
