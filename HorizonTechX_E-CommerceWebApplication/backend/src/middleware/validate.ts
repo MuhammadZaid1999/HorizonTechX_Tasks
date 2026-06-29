@@ -14,7 +14,11 @@ export function validate(schema: ZodSchema, key: RequestKey) {
       });
     }
 
-    (request as unknown as Record<RequestKey, unknown>)[key] = result.data;
+    Object.defineProperty(request, key, {
+      value: result.data,
+      writable: true,
+      configurable: true,
+    });
     return next();
   };
 }

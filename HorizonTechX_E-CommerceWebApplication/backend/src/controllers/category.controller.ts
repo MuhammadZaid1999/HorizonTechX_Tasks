@@ -4,7 +4,6 @@ import {
   type CategoryQueryDto,
 } from "@/dtos/category.dto";
 import { Category } from "@/models/Category";
-import { mapCategory } from "@/mappers/catalog.mapper";
 import { buildPaginationMeta, getSkip } from "@/utils/pagination";
 
 export async function getCategories(request: Request, response: Response) {
@@ -30,7 +29,7 @@ export async function getCategories(request: Request, response: Response) {
   ]);
 
   return response.json({
-    data: categories.map(mapCategory),
+    data: categories,
     meta: buildPaginationMeta(filter.page, filter.limit, total),
   });
 }

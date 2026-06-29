@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
 import { Brand } from "@/models/Brand";
 import { buildPaginationMeta, getSkip } from "@/utils/pagination";
-import { mapBrand } from "@/mappers/catalog.mapper";
 import type { BrandQueryDto } from "@/dtos/brand.dto";
 
 export async function getBrands(request: Request, response: Response) {
@@ -20,7 +19,7 @@ export async function getBrands(request: Request, response: Response) {
   ]);
 
   return response.json({
-    data: brands.map(mapBrand),
+    data: brands,
     meta: buildPaginationMeta(query.page, query.limit, total),
   });
 }

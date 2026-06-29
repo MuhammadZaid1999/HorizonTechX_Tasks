@@ -5,19 +5,6 @@ import type { ProductDocument } from "@/models/Product";
 type ProductLike = ProductDocument & { createdAt?: Date; updatedAt?: Date };
 type CategoryLike = CategoryDocument & { createdAt?: Date; updatedAt?: Date };
 
-export function mapBrand(brand: BrandDocument) {
-  return {
-    name: brand.name,
-  };
-}
-
-export function mapCategory(category: CategoryLike) {
-  return {
-    name: category.name,
-    parentId: category.parentId ?? null,
-  };
-}
-
 export function mapProduct(
   product: ProductLike,
   brandsById: Map<string, BrandDocument>,
